@@ -53,7 +53,7 @@ def create_start_window():
     center_frame.place(relx=0.5, rely=0.5, anchor="center")
 
     label = tk.Label(center_frame, text="Bienvenue dans le Blackjack",
-                     bg="grey",fg="white", font=("Arial", 16, "bold"))
+                    bg="darkgreen",fg="white", font=("Arial", 16, "bold"))
     label.pack(pady=(0,20))
 
     def open_main_game():
@@ -63,14 +63,15 @@ def create_start_window():
 
     
     start_button = tk.Button(center_frame, text="Commencer",
-                             command=open_main_game,
-                             bg="#00A86B", fg="white", font=("Arial", 14), width=25)
+                         command=open_main_game,
+                         font=("Arial", 14, "bold"),
+                         fg="white", bg="#00A86B", width=25)
     start_button.pack(pady=6)
 
     
     exit_btn = tk.Button(center_frame, text="Quitter",
                          command=start_window.destroy,
-                         bg="#AA0000", fg="white", font=("Arial", 14), width=25)
+                         bg="#AA0000", fg="white", font=("Arial", 14, "bold"), width=25)
     exit_btn.pack(pady=(6,0))
 
 
@@ -215,7 +216,7 @@ def launch_blackjack_ui():
         stand_btn.place(x=230,y=200)
         # registration button to sign up this slot for the next game
         reg_btn = tk.Button(frame, text="S'inscrire", width=10)
-        reg_btn.place(x=10, y=200)
+        reg_btn.place(x=80, y=200)
 
         player_frames.append(frame)
         player_canvases.append(canvas)
@@ -422,7 +423,7 @@ def launch_blackjack_ui():
         except Exception:
             pass
 
-        scheduled_restart_id = root.after(10000, lambda: start_simple_game())
+        scheduled_restart_id = root.after(10000, lambda: start_game())
         
 
     def hit(idx):
@@ -531,7 +532,7 @@ def launch_blackjack_ui():
     for i in range(MAX_PLAYERS):
         player_register_buttons[i].config(command=lambda i=i: toggle_registration(i))
 
-    def start_simple_game():
+    def start_game():
         nonlocal active_players, player_states, game_in_progress, deck, dealer_hand, scheduled_restart_id
         # Si un redémarrage automatique est programmé, l'annuler (l'utilisateur a lancé manuellement)
         try:
@@ -591,7 +592,7 @@ def launch_blackjack_ui():
        
 
     start_btn = tk.Button(root, text="Commencer une nouvelle partie",
-                          command=start_simple_game,
+                          command=start_game,
                           bg="#00A86B",fg="white",width=25,height=2,
                           state="disabled")
     start_btn.place(x=10,y=80)
