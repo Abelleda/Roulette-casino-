@@ -216,7 +216,7 @@ def launch_blackjack_ui():
         stand_btn.place(x=230,y=200)
         # registration button to sign up this slot for the next game
         reg_btn = tk.Button(frame, text="S'inscrire", width=10)
-        reg_btn.place(x=80, y=200)
+        reg_btn.place(x=90, y=200)
 
         player_frames.append(frame)
         player_canvases.append(canvas)
