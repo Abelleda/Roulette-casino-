@@ -30,7 +30,7 @@ def create_start_window():
     bg_label = None
     try:
         bg_img = None
-        for p in ("gui/CasinoImage.png", "CasinoImage.png"):
+        for p in ("img/CasinoImage.png", "CasinoImage.png"):
             try:
                 bg_img = Image.open(p).convert("RGBA")
                 break
@@ -92,7 +92,7 @@ def launch_blackjack_ui():
         root.update_idletasks()
         sw, sh = root.winfo_screenwidth(), root.winfo_screenheight()
         bg_img = None
-        for p in ("gui/CasinoMain.png", "CasinoMain.png"):
+        for p in ("img/CasinoMain.png", "CasinoMain.png"):
             try:
                 bg_img = Image.open(p).convert("RGBA")
                 break
@@ -137,7 +137,7 @@ def launch_blackjack_ui():
     def load_card_images():
         for name in CARD_NAMES:
             try:
-                img = Image.open(f"gui/cards/{name}.png").convert("RGBA")
+                img = Image.open(f"img/cards/{name}.png").convert("RGBA")
             except:
                 img = make_placeholder_image(name)
             img = img.resize(CARD_IMG_SIZE, Image.LANCZOS)
